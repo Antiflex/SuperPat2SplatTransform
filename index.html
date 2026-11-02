@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>viewer 4DGS</title>
+    <style>
+        html, body, #viewer {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/storysplat-viewer@2/dist/storysplat-viewer.bundled.umd.js"></script>
+
+    <script>
+        const frameCount = 176;
+        const fps = 24;
+
+        const baseUrl = "./splats/";
+
+        const frameUrls = Array.from(
+            { length: frameCount },
+            (_, i) => `${baseUrl}${String(i).padStart(5, "0")}.sog`
+        );
+
+        const viewer = StorySplatViewer.createViewer(
+            document.getElementById("viewer"),
+            {
+                frameSequence: {
+                    frameUrls,
+                    fps,
+                    loop: true
+                }
+            }
+        );
+
+        viewer.play();
+    </script>
+</body>
+</html>
