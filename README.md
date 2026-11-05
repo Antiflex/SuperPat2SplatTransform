@@ -113,10 +113,7 @@ Get-ChildItem -Path $inputDir -Filter "*.sog" -File | ForEach-Object {
     Write-Host "Transforming $($_.Name)..."
 
     & splat-transform $input `
-        -r "12,10,5" `
-        $output `      # Rotation et translation à remplacer
-        -t "0,3.8,0" `
-        -w
+        -r "12,10,5" -t "0,3.8,0"  $output -w #rotation et translation à remplacer, ajouter -s <facteur d'agrandissement> pour agrandir ou rétrecir
 
     if ($LASTEXITCODE -ne 0) {
         Write-Host "ERROR: $($_.Name)" -ForegroundColor Red
