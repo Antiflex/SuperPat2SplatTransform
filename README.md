@@ -82,7 +82,7 @@ exemple :
 La commande correspondante à une rotation de `(-12,10,5)` suivie d'une translation de `(0,3.8,0)` est donc :
 
 ``` cmd
-splat-transform "path/to/input/dir/00000.sog" -r 12,-10,5 -t 0,3.8,0 "path/to/output/dir/00000_out.sog" -w
+splat-transform "path/to/input/dir/frame0.sog" -r '12,-10,5' -t '0,3.8,0' "path/to/output/dir/frame0_out.sog" -w
 ```
 
 Elle applique successivement :
